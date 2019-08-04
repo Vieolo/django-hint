@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: django-hint
+Version: 0.0.1
+Summary: Typehinting package for django
+Home-page: https://github.com/Vieolo/django-hint
+Author: Vieolo OÜ
+Author-email: info@vieolo.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: GNU GPLv3 License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
