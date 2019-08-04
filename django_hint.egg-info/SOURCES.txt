@@ -1,7 +1,7 @@
 README.md
 setup.py
-django-hint/__init__.py
-django-hint/typehint.py
+django_hint/__init__.py
+django_hint/typehint.py
 django_hint.egg-info/PKG-INFO
 django_hint.egg-info/SOURCES.txt
 django_hint.egg-info/dependency_links.txt

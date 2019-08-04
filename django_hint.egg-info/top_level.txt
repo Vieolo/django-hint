@@ -1,1 +1,1 @@
-django-hint
+django_hint

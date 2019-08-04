@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="django-hint",
-    version="0.0.1",
+    name="django_hint",
+    version="0.0.8",
     author="Vieolo OÜ",
     author_email="info@vieolo.com",
     description="Typehinting package for django",
@@ -15,6 +15,7 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3.6",
+        "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
 )
