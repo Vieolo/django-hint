@@ -1,12 +1,12 @@
 Metadata-Version: 2.1
 Name: django-hint
-Version: 0.0.8
+Version: 0.1.0
 Summary: Typehinting package for django
 Home-page: https://github.com/Vieolo/django-hint
 Author: Vieolo OÜ
 Author-email: info@vieolo.com
 License: UNKNOWN
-Description: Django_hint is module to help you type hint your django project to work with different IDEs.
+Description: `Django_hint` is a module to help you type hint your django project to work with different IDEs.
         
         ```
         Notice: Python3.6 or later is required for this module
