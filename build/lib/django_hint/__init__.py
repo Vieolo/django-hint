@@ -1,5 +1,5 @@
 from .typehint import QueryType, RequestType, DRFTokenRequestType, List, Optional, Union, Deque, Dict, DefaultDict, FrozenSet, ChainMap, Counter, Set
-from .typehint import Generic, Callable, Tuple, Protocol, TypeVar, Type, ClassVar
+from .typehint import Generic, Callable, Tuple, TypeVar, Type, ClassVar
 __all__ = [
     "QueryType",
     "RequestType",
@@ -17,7 +17,6 @@ __all__ = [
     'Generic',
     'Callable',
     'Tuple',
-    'Protocol',
     'TypeVar',
     'Type',
     'ClassVar'

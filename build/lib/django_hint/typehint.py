@@ -19,7 +19,6 @@ from typing import Deque as _Deque
 from typing import ChainMap as _ChainMap
 from typing import Callable as _Callable
 from typing import Tuple as _Tuple
-from typing import Protocol as _Protocol
 from typing import Type as _Type
 from typing import ClassVar as _ClassVar
 
@@ -37,7 +36,6 @@ ChainMap = _ChainMap
 Generic = _Generic
 Callable = _Callable
 Tuple = _Tuple
-Protocol = _Protocol
 Type = _Type
 TypeVar = _TypeVar
 ClassVar = _ClassVar
@@ -47,9 +45,9 @@ class Token:
     """
     The default authorization token model.
     """
-    key: str
-    user: User
-    created: datetime
+    key: str = ...
+    user: User = ...
+    created: datetime = ...
 
     def save(self, *args, **kwargs):
         pass
@@ -184,9 +182,9 @@ class QueryType(_Generic[_Z], QuerySet):
 
 
 class RequestType(HttpRequest):
-    user: User
+    user: User = ...
 
 
 class DRFTokenRequestType(HttpRequest):
-    user: User
-    auth: Token
+    user: User = ...
+    auth: Token = ...
