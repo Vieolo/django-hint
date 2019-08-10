@@ -17,6 +17,11 @@ from typing import FrozenSet as _FrozenSet
 from typing import Counter as _Counter
 from typing import Deque as _Deque
 from typing import ChainMap as _ChainMap
+from typing import Callable as _Callable
+from typing import Tuple as _Tuple
+from typing import Protocol as _Protocol
+from typing import Type as _Type
+from typing import ClassVar as _ClassVar
 
 _Z = _TypeVar("_Z")
 List = _List
@@ -29,6 +34,13 @@ FrozenSet = _FrozenSet
 Counter = _Counter
 Deque = _Deque
 ChainMap = _ChainMap
+Generic = _Generic
+Callable = _Callable
+Tuple = _Tuple
+Protocol = _Protocol
+Type = _Type
+TypeVar = _TypeVar
+ClassVar = _ClassVar
 
 
 class Token:
