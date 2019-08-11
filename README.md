@@ -13,7 +13,7 @@ pip3 install django_hint
 ```
 
 ## Usage
-The following use cases can be type hinted using django_hint to help you IDE recognize the type of variable.
+The following use cases can be type hinted using `django_hint` to help your IDE recognize the type of variable.
 1. Database QuerySet
 2. WSGIRequest
 3. Django-Rest-Framework Token Authentication
