@@ -3,42 +3,27 @@ from datetime import datetime as datetime
 from django.db.models import QuerySet as QuerySet
 from django.http.request import HttpRequest as HttpRequest
 from django.contrib.auth.models import User as User
+from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 
-from typing import Iterator as _Iterator
-from typing import TypeVar as _TypeVar
-from typing import Generic as _Generic
-from typing import List as _List
-from typing import Optional as _Optional
-from typing import Union as _Union
-from typing import Dict as _Dict
-from typing import DefaultDict as _DefaultDict
-from typing import Set as _Set
-from typing import FrozenSet as _FrozenSet
-from typing import Counter as _Counter
-from typing import Deque as _Deque
-from typing import ChainMap as _ChainMap
-from typing import Callable as _Callable
-from typing import Tuple as _Tuple
-from typing import Type as _Type
-from typing import ClassVar as _ClassVar
+from typing import Iterator
+from typing import TypeVar
+from typing import Generic
+from typing import List
+from typing import Optional
+from typing import Union
+from typing import Dict
+from typing import DefaultDict
+from typing import Set
+from typing import FrozenSet
+from typing import Counter
+from typing import Deque
+from typing import ChainMap
+from typing import Callable
+from typing import Tuple
+from typing import Type
+from typing import ClassVar
 
-_Z = _TypeVar("_Z")
-List = _List
-Optional = _Optional
-Union = _Union
-Dict = _Dict
-DefaultDict = _DefaultDict
-Set = _Set
-FrozenSet = _FrozenSet
-Counter = _Counter
-Deque = _Deque
-ChainMap = _ChainMap
-Generic = _Generic
-Callable = _Callable
-Tuple = _Tuple
-Type = _Type
-TypeVar = _TypeVar
-ClassVar = _ClassVar
+_Z = TypeVar("_Z")
 
 
 class Token:
@@ -177,8 +162,8 @@ class Token:
         pass
 
 
-class QueryType(_Generic[_Z], QuerySet):
-    def __iter__(self) -> _Iterator[_Z]: ...
+class QueryType(Generic[_Z], QuerySet):
+    def __iter__(self) -> Iterator[_Z]: ...
 
 
 class RequestType(HttpRequest):
@@ -188,3 +173,9 @@ class RequestType(HttpRequest):
 class DRFTokenRequestType(HttpRequest):
     user: User = ...
     auth: Token = ...
+
+
+class StandardModelType:
+    objects: QuerySet = ...
+    DoesNotExist: Union[ObjectDoesNotExist, Callable] = ...
+    MultipleObjectsReturned: Union[MultipleObjectsReturned, Callable] = ...

@@ -17,6 +17,7 @@ The following use cases can be type hinted using django_hint to help you IDE rec
 1. Database QuerySet
 2. WSGIRequest
 3. Django-Rest-Framework Token Authentication
+4. Model Class
 
 As a bonus, all of the native python type hints such as `List`, `Union`, `Optional` etc. from `typing` module can be imported from `django_hint`
 
@@ -52,4 +53,19 @@ def sample_view(request: DRFTokenRequestType):
     print(request.auth.key)
 ```
 
+## Model Class
+Django adds a few attributes to a `Model` instance which are not available in the `models.Model` and will not be available in your IDE. 
+The most notable attribute is the `Manager` which is accessible via an attribute called `objects`.<br>
+To include these attributes in your IDE, You have to extend your model to the `StandardModelType` class of `django_hint` as well as `models.Model` and use it just like any other model class.<br>
+Note that `StandardModeltype` will NOT have any effect on your database and will NOT make new migrations on `makemigrations` command.
+
+```python
+from django.db import models
+from django_hint import StandardModelType
+
+class SampleModel(models.Model, StandardModelType):
+    """Just like any other model"""
+    pass
+```
+  
 
