@@ -3,7 +3,9 @@ from datetime import datetime as datetime
 from django.db.models import QuerySet as QuerySet
 from django.http.request import HttpRequest as HttpRequest
 from django.contrib.auth.models import User as User
-from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
+from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import MultipleObjectsReturned as Mor
+
 
 from typing import Iterator
 from typing import TypeVar
@@ -178,4 +180,4 @@ class DRFTokenRequestType(HttpRequest):
 class StandardModelType:
     objects: QuerySet = ...
     DoesNotExist: Union[ObjectDoesNotExist, Callable] = ...
-    MultipleObjectsReturned: Union[MultipleObjectsReturned, Callable] = ...
+    MultipleObjectsReturned: Union[Mor, Callable] = ...

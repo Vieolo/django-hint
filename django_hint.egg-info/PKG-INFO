@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: django-hint
-Version: 0.1.4
+Version: 0.1.5
 Summary: Typehinting package for django
 Home-page: https://github.com/Vieolo/django-hint
 Author: Vieolo OÜ
@@ -21,7 +21,7 @@ Description: `Django_hint` is a module to help you type hint your django project
         ```
         
         ## Usage
-        The following use cases can be type hinted using django_hint to help you IDE recognize the type of variable.
+        The following use cases can be type hinted using `django_hint` to help your IDE recognize the type of variable.
         1. Database QuerySet
         2. WSGIRequest
         3. Django-Rest-Framework Token Authentication
