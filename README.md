@@ -1,4 +1,4 @@
-`Django_hint` is a module to help you type hint your django project to work with different IDEs.
+`Django_hint` is a module to help you type hint your django project to work with different IDEs. It has been tested in PyCharm and with pylint in VSCode.
 
 ```
 Notice: Python3.6 or later is required for this module

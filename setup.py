@@ -5,10 +5,10 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="django_hint",
-    version="0.1.5",
+    version="0.2.0",
     author="Vieolo OÜ",
     author_email="info@vieolo.com",
-    description="Typehinting package for django",
+    description="Type hinting package for django",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Vieolo/django-hint",
