@@ -1,2 +1,6 @@
 # IDE generated
 .idea
+
+
+# Environment
+venv/
