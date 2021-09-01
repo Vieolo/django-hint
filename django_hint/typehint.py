@@ -32,9 +32,9 @@ class Token:
     """
     The default authorization token model.
     """
-    key: str = ...
-    user: User = ...
-    created: datetime = ...
+    key: str
+    user: User
+    created: datetime
 
     def save(self, *args, **kwargs):
         pass
@@ -165,19 +165,19 @@ class Token:
 
 
 class QueryType(Generic[_Z], QuerySet):
-    def __iter__(self) -> Iterator[_Z]: ...
+    def __iter__(self) -> Iterator[_Z]: pass
 
 
 class RequestType(HttpRequest):
-    user: User = ...
+    user: User
 
 
 class DRFTokenRequestType(HttpRequest):
-    user: User = ...
-    auth: Token = ...
+    user: User
+    auth: Token
 
 
 class StandardModelType:
-    objects: QuerySet = ...
-    DoesNotExist: Union[ObjectDoesNotExist, Callable] = ...
-    MultipleObjectsReturned: Union[Mor, Callable] = ...
+    objects: QuerySet
+    DoesNotExist: Union[ObjectDoesNotExist, Callable]
+    MultipleObjectsReturned: Union[Mor, Callable]
