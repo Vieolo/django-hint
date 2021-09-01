@@ -1,0 +1,7 @@
+# IDE generated
+.idea
+.vscode
+
+
+# Environment
+venv/
