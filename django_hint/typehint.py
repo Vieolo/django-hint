@@ -164,10 +164,6 @@ class Token:
         pass
 
 
-class QueryType(Generic[_Z], QuerySet):
-    def __iter__(self) -> Iterator[_Z]: pass
-
-
 class RequestType(HttpRequest):
     user: User
 
@@ -177,7 +173,140 @@ class DRFTokenRequestType(HttpRequest):
     auth: Token
 
 
-class StandardModelType:
-    objects: QuerySet
+
+############################
+#    QuerySet and Model    #
+############################
+
+
+class QueryType(Generic[_Z], QuerySet):
+    def __iter__(self) -> Iterator[_Z]: pass
+
+
+class QuerySetBase(Generic[_Z], QuerySet):
+    def get(self, *args, **kwargs) -> _Z:
+        """
+        Perform the query and return a single object matching the given
+        keyword arguments.
+        """
+        pass
+    
+    def create(self, **kwargs) -> _Z:
+        """
+        Create a new object with the given kwargs, saving it to the database
+        and returning the created object.
+        """
+        pass
+        
+    def first(self) -> _Z:
+        """Return the first object of a query or None if no match is found."""
+        pass
+
+    def last(self) -> _Z:
+        """Return the last object of a query or None if no match is found."""
+        pass
+
+    def get_or_create(self, defaults=None, **kwargs) -> Tuple[_Z, bool]: 
+        """
+        Look up an object with the given kwargs, creating one if necessary.
+        Return a tuple of (object, created), where created is a boolean
+        specifying whether an object was created.
+        """
+        pass
+
+    def update_or_create(self, defaults=None, create_defaults=None, **kwargs) -> Tuple[_Z, bool]:
+        """
+        Look up an object with the given kwargs, updating one with defaults
+        if it exists, otherwise create a new one. Optionally, an object can
+        be created with different values than defaults by using
+        create_defaults.
+        Return a tuple (object, created), where created is a boolean
+        specifying whether an object was created.
+        """
+        pass
+
+class QueryFilter(Generic[_Z], QuerySetBase[_Z]):
+    def __iter__(self) -> Iterator[_Z]: pass
+
+
+class QuerySetType(Generic[_Z], QuerySetBase[_Z]):
+    def all(self) -> QueryFilter[_Z]:
+        """
+        Return a new QuerySet that is a copy of the current one. This allows a
+        QuerySet to proxy for a model manager in some cases.
+        """
+        pass
+    
+    def filter(self, *args, **kwargs) -> QueryFilter[_Z]:
+        """
+        Return a new QuerySet instance with the args ANDed to the existing
+        set.
+        """
+        pass
+    
+    def exclude(self, *args, **kwargs) -> QueryFilter[_Z]:
+        """
+        Return a new QuerySet instance with NOT (args) ANDed to the existing
+        set.
+        """
+        pass
+    
+    def select_for_update(self, nowait=False, skip_locked=False, of=(), no_key=False) -> QueryFilter[_Z]:
+        """
+        Return a new QuerySet instance that will select objects with a
+        FOR UPDATE lock.
+        """
+        pass
+    
+    def select_related(self, *fields) -> QueryFilter[_Z]:
+        """
+        Return a new QuerySet instance that will select related objects.
+
+        If fields are specified, they must be ForeignKey fields and only those
+        related objects are included in the selection.
+
+        If select_related(None) is called, clear the list.
+        """
+        pass
+    
+    def prefetch_related(self, *lookups) -> QueryFilter[_Z]:
+        """
+        Return a new QuerySet instance that will prefetch the specified
+        Many-To-One and Many-To-Many related objects when the QuerySet is
+        evaluated.
+
+        When prefetch_related() is called more than once, append to the list of
+        prefetch lookups. If prefetch_related(None) is called, clear the list.
+        """
+        pass
+    
+    def annotate(self, *args, **kwargs) -> QueryFilter[_Z]:
+        """
+        Return a query set in which the returned objects have been annotated
+        with extra data or aggregations.
+        """
+        pass
+    
+    def alias(self, *args, **kwargs) -> QueryFilter[_Z]:
+        """
+        Return a query set with added aliases for extra data or aggregations.
+        """
+        pass
+    
+    def order_by(self, *field_names) -> QueryFilter[_Z]:
+        """Return a new QuerySet instance with the ordering changed."""
+        pass
+    
+    def distinct(self, *field_names) -> QueryFilter[_Z]:
+        """
+        Return a new QuerySet instance that will select only distinct results.
+        """
+        pass
+    def reverse(self) -> QueryFilter[_Z]:
+        """Reverse the ordering of the QuerySet."""
+        pass
+
+class StandardModelType(Generic[_Z]):
+    objects: QuerySetType[_Z]
     DoesNotExist: Union[ObjectDoesNotExist, Callable]
     MultipleObjectsReturned: Union[Mor, Callable]
