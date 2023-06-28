@@ -184,10 +184,28 @@ class QueryType(Generic[_Z], QuerySet):
 
 
 class QuerySetBase(Generic[_Z], QuerySet):
-    def get(self, *args, **kwargs) -> _Z: pass
-    def first(self, *args, **kwargs) -> _Z: pass
-    def last(self, *args, **kwargs) -> _Z: pass
-    def create(self, **kwargs) -> _Z: pass
+    def get(self, *args, **kwargs) -> _Z:
+        """
+        Perform the query and return a single object matching the given
+        keyword arguments.
+        """
+        pass
+    
+    def create(self, **kwargs) -> _Z:
+        """
+        Create a new object with the given kwargs, saving it to the database
+        and returning the created object.
+        """
+        pass
+        
+    def first(self) -> _Z:
+        """Return the first object of a query or None if no match is found."""
+        pass
+
+    def last(self) -> _Z:
+        """Return the last object of a query or None if no match is found."""
+        pass
+
     def get_or_create(self, defaults=None, **kwargs) -> Tuple[_Z, bool]: 
         """
         Look up an object with the given kwargs, creating one if necessary.
@@ -195,6 +213,7 @@ class QuerySetBase(Generic[_Z], QuerySet):
         specifying whether an object was created.
         """
         pass
+
     def update_or_create(self, defaults=None, create_defaults=None, **kwargs) -> Tuple[_Z, bool]:
         """
         Look up an object with the given kwargs, updating one with defaults
