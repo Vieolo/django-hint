@@ -164,10 +164,6 @@ class Token:
         pass
 
 
-class QueryType(Generic[_Z], QuerySet):
-    def __iter__(self) -> Iterator[_Z]: pass
-
-
 class RequestType(HttpRequest):
     user: User
 
@@ -177,7 +173,41 @@ class DRFTokenRequestType(HttpRequest):
     auth: Token
 
 
-class StandardModelType:
-    objects: QuerySet
+class QueryType(Generic[_Z], QuerySet):
+    def __iter__(self) -> Iterator[_Z]: pass
+
+
+class QuerySetBase(Generic[_Z], QuerySet):
+    def get(self, *args, **kwargs) -> _Z: pass
+    def first(self, *args, **kwargs) -> _Z: pass
+    def last(self, *args, **kwargs) -> _Z: pass
+    def create(self, **kwargs) -> _Z: pass
+    def get_or_create(self, defaults=None, **kwargs) -> Tuple[_Z, bool]: 
+        """
+        Look up an object with the given kwargs, creating one if necessary.
+        Return a tuple of (object, created), where created is a boolean
+        specifying whether an object was created.
+        """
+        pass
+    def update_or_create(self, defaults=None, create_defaults=None, **kwargs) -> Tuple[_Z, bool]:
+        """
+        Look up an object with the given kwargs, updating one with defaults
+        if it exists, otherwise create a new one. Optionally, an object can
+        be created with different values than defaults by using
+        create_defaults.
+        Return a tuple (object, created), where created is a boolean
+        specifying whether an object was created.
+        """
+        pass
+
+class QueryFilter(Generic[_Z], QuerySetBase[_Z]):
+    def __iter__(self) -> Iterator[_Z]: pass
+
+
+class QuerySetType(Generic[_Z], QuerySetBase[_Z]):
+    def filter(self, *args, **kwargs) -> QueryFilter[_Z]: pass
+
+class StandardModelType(Generic[_Z]):
+    objects: QuerySetType[_Z]
     DoesNotExist: Union[ObjectDoesNotExist, Callable]
     MultipleObjectsReturned: Union[Mor, Callable]

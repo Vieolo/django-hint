@@ -5,8 +5,6 @@ Summary: Type hinting package for django
 Home-page: https://github.com/Vieolo/django-hint
 Author: Vieolo OÜ
 Author-email: info@vieolo.com
-License: UNKNOWN
-Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3.6
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
@@ -83,6 +81,4 @@ class SampleModel(models.Model, StandardModelType):
     pass
 ```
   
-
-
 
