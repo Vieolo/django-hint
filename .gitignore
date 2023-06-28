@@ -1,7 +1,8 @@
 # IDE generated
 .idea
 .vscode
-
+.DS_Store
 
 # Environment
 venv/
+build/
