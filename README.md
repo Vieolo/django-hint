@@ -1,3 +1,5 @@
+# django-hint
+
 `Django_hint` is a module to help you type hint your django project to work with different IDEs. It has been tested in PyCharm and with pylint in VSCode.
 
 ```

@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="django_hint",
-    version="0.2.0",
+    version="0.3.0",
     author="Vieolo OÜ",
     author_email="info@vieolo.com",
     description="Type hinting package for django",
