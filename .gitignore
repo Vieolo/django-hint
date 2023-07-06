@@ -6,3 +6,4 @@
 # Environment
 venv/
 build/
+dist/

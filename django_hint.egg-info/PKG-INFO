@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: django-hint
-Version: 0.3.0
+Version: 0.3.2
 Summary: Type hinting package for django
 Home-page: https://github.com/Vieolo/django-hint
 Author: Vieolo OÜ

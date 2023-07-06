@@ -1,6 +1,6 @@
 # Change Log
 
-## 0.3.1 (2023-07-07)
+## 0.3.2 (2023-07-07)
 - Added `QueryFilter` to the export
 
 ## 0.3.0 (2023-06-29)
