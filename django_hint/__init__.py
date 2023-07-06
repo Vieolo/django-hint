@@ -4,6 +4,7 @@ __all__ = [
     "QueryType",
     "RequestType",
     "DRFTokenRequestType",
+    "QueryFilter",
     "StandardModelType",
     "List",
     "Optional",
